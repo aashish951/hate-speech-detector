@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Tweet Classifier</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #444;
+            background-size: cover;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #333;
+        }
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 16px;
+            margin: 15px 0;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"]:focus {
+            border: 1px solid #007BFF;
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+        }
+        input[type="submit"] {
+            padding: 14px 25px;
+            background-color: #007BFF;
+            border: none;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+          .result h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 1em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hate Tweet Classifier</h1>
+        <form action="/predict" method="post">
+            <input type="text" name="message" placeholder="Enter tweet text here" required>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+        <div class="footer">
+            <p>Developed by ashish</p>
+        </div>
+    </div>
+</body>
+</html>
