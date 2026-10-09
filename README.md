@@ -4,6 +4,8 @@ A Flask web app that classifies a piece of text into one of three categories usi
 
 Live demo: https://hate-speech-detector-2-g09g.onrender.com
 
+Built a hate speech classifier on 25k tweets (CountVectorizer + Decision Tree), achieving 87.5% test accuracy; deployed as a Flask web app.
+
 What it does
 
 You type a message into the web form and the app tells you whether it is:
